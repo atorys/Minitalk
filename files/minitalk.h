@@ -7,4 +7,7 @@
 # include "../libft/libft.h"
 # include <stdio.h>
 
+
+void	error_case(char *message, int number);
+
 #endif

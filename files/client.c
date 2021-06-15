@@ -1,24 +1,34 @@
 #include "minitalk.h"
 
-static void error_case(char *message, int number)
+void byte_mask(int pid, char byte)
 {
-	ft_putstr_fd(message, 2);
-	exit(number);
+	int mask;
+
+	mask = 1;
+	while (mask <= 128)
+	{
+		if (mask & byte)
+			kill(pid, SIGUSR1);
+		else
+			kill(pid, SIGUSR2);
+		mask *= 2;
+		usleep(1);
+	}
 }
 
 int	main(int argc, char *argv[])
 {
-	int	pid;
+	int		pid;
+	char	*target;
+	int		i;
 
 	if (argc != 3)
 		error_case("Invalid configuration", 1);
 	pid = ft_atoi(argv[1]);
-	ft_putnbr_fd(pid,1);
-	kill(pid, SIGUSR1);
-	usleep(1);
-	kill(pid, SIGUSR1);
-	usleep(1);
-	kill(pid, SIGUSR2);
-	usleep(1);
-	kill(pid, SIGUSR2);
+	target = argv[2];
+	i = -1;
+	while (target[++i])
+	{
+		byte_mask(pid, target[i]);
+	}
 }
