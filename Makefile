@@ -96,15 +96,12 @@ objects/%.o :		%.c $(HEADERS)
 #-------CLEAN
 clean :
 			@rm -rf objects/
-			@echo "removing [objects] "
 			@make clean -C libft/
-			@echo "[libft/objects]"
+			@echo "removing [objects] [libft/objects]"
 
 fclean :	clean
 			@rm -f server client
 			@rm -f server_bonus client_bonus
-			@echo "removing [server] [client] [server_bonus] [client_bonus] "
 			@make fclean -C libft/
-			@echo "[libft]"
-
+			@echo "removing [server] [client] [server_bonus] [client_bonus] [libft]"
 re :		fclean all

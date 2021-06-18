@@ -9,5 +9,5 @@
 
 void	error_case(char *message, int number);
 void	byte_mask(int pid, char byte);
-
+int		valid_pid(char *pid);
 #endif
