@@ -40,12 +40,9 @@ int	main(void)
 {
 	struct sigaction	sigredirect;
 	sigset_t			my_signals;
-	char				*pid;
 
-	pid = ft_itoa(getpid());
 	write(1, "\033[0;37mProcess id: {\033[1;32m", 27);
-	write(1, pid, ft_strlen(pid));
-	free(pid);
+	ft_putnbr_fd(getpid(), 1);
 	write(1, "\033[0;37m}\033[0m\n", 13);
 	ft_memset(&sigredirect, '\0', sizeof(sigredirect));
 	sigredirect.sa_sigaction = itsworking;
