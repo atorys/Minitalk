@@ -8,7 +8,7 @@ Norminette codestyle.
 
 ## Cloning
 ```
-git clone https://github.com/AchioteTory/Fdf.git
+git clone https://github.com/AchioteTory/Minitalk.git
 ```
 ## Run
 ```
