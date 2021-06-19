@@ -21,3 +21,4 @@ small reception acknowledgment system is added
 ```
 make bonus
 ```
+<img src="usage.gif" width=100% height=100%/>
